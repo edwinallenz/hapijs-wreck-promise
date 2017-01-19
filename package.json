@@ -1,0 +1,32 @@
+{
+  "name": "wreck-promise",
+  "version": "1.0.0",
+  "description": "A wrapper for hapijs wreck with promises",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node_modules/lab/bin/lab -t 80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwinallenz/hapijs-wreck-promise.git"
+  },
+  "keywords": [
+    "wreck",
+    "promise",
+    "hapijs"
+  ],
+  "devDependencies": {
+    "code": "^4.0.0",
+    "lab": "^11.2.2"
+  },
+  "author": "Edwin Allen",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/edwinallenz/hapijs-wreck-promise/issues"
+  },
+  "homepage": "https://github.com/edwinallenz/hapijs-wreck-promise#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "wreck": "^10.0.0"
+  }
+}
