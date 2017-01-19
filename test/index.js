@@ -81,4 +81,39 @@ describe('request()', () => {
         })
     })
 
+    it('requests a resource and set a default endpoint', (done) => {
+
+        const server = Http.createServer((req, res) => {
+
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(internals.payload)
+        })
+
+        server.listen(0, () => {
+
+            const baseUrl = `http://localhost:${server.address().port}`
+
+            PWreck.post(baseUrl , {}).then((res) => {
+
+                expect(res.body.toString()).to.equal(internals.payload)
+                return PWreck.delete(baseUrl)
+
+            }).then((res) => {
+
+                expect(res.body.toString()).to.equal(internals.payload)
+                return PWreck.put(baseUrl)
+
+            }).then((res) => {
+
+                expect(res.body.toString()).to.equal(internals.payload)
+                PWreck.defaults({baseUrl: baseUrl})
+                return PWreck.get()
+            }).then((res) => {
+
+                expect(res.body.toString()).to.equal(internals.payload)
+                done()
+            }).catch(done)
+        })
+    })
+
 })
